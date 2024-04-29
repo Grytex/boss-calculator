@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>North Mt2 Info</title>
+    <style>
+      #bossTimer {
+        font-size: 17px;
+      }
+      #metinInfo {
+        display: none;
+        padding: 10px;
+      }
+      #otofarmInfo {
+        display: none;
+        padding: 10px;
+      }
+      .cadilarHaritasi {
+        grid-area: 1 / 1 / 2 / 4;
+        background-color: rgb(255, 205, 113);
+        border: 2px solid black;
+        padding: 10px;
+        font-size: 20px;
+        text-align: left;
+      }
+      .uzayHaritasi {
+        grid-area: 2 / 1 / 3 / 4;
+        background-color: rgb(211, 120, 211);
+        border: 2px solid rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        font-size: 20px;
+        text-align: left;
+      }
+      .cehennemHaritasi {
+        grid-area: 3 / 1 / 4 / 4;
+        background-color: rgb(172, 62, 62);
+        border: 2px solid rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        font-size: 20px;
+        text-align: left;
+      }
+      .bedeviHaritasi {
+        grid-area: 4 / 1 / 5 / 4;
+        background-color: wheat;
+        border: 2px solid rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        font-size: 20px;
+        text-align: left;
+      }
+      .sevgililerHaritasi {
+        grid-area: 5 / 1 / 6 / 4;
+        background-color: rgb(190, 51, 179);
+        border: 2px solid rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        font-size: 20px;
+        text-align: left;
+      }
+      .zamanHaritası {
+        grid-area: 6 / 1 / 7 / 4;
+        background-color: white;
+        border: 2px solid rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        font-size: 20px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>North Metin2 Info</h1>
+
+    <form id="saatForm">
+      <label ><b>Boss Eventi Saatini Gir:</b></label>
+      <input type="time" id="saat" name="saat" />
+      <button type="button" onclick="saatGonder()">Boss Saati</button>
+      <button
+        style="display: inline-flex"
+        type="button"
+        onclick="metinleriGonder()"
+      >
+        Metin Canları
+      </button>
+      <button type="button" onclick="otoFarmHesapla()">
+        Farm Para Hesapla
+      </button>
+    </form>
+    <div id="bossTimer">
+      <p id="luciferTimer"></p>
+      <p id="orkReisiTimer"></p>
+      <p id="azrailTimer">1.Azrail (25M)</p>
+      <p id="orumcekTimer">1.Örümcek Barones (50M)</p>
+      <p id="beranSetaouTimer">1.Beran Setaou (100M)</p>
+
+      <p id="razadorTimer">2.Razadör (500M)</p>
+      <p id="nemereTimer">2.Nemere (1T)</p>
+      <p id="kristalEjderhaTimer">2.Kristal Ejderha (3T)</p>
+      <p id="seytaniKurtTimer">2.Şeytani Kurt (6T)</p>
+      <p id="muhafizTimer">2.Muhafız (10T)</p>
+
+      <p id="kutuphaneTimer">3.Kütüphane Canavarı (150T)</p>
+      <p id="kardanAdamTimer">3.Kardan Adam (500T)</p>
+      <p id="jasonTimer">3.Korkunç Jason (2KT)</p>
+      <p id="olumTanricasiTimer">3.Ölüm Tanrıçası (5KT)</p>
+      <p id="yesilVadiKoruyucusuTimer">3.Yeşil Vadi Koruyucusu (15KT)</p>
+
+      <p id="mamutTimer">4.Mamut (100KT)</p>
+      <p id="larvaTimer">4.Larva (150KT)</p>
+      <p id="brahmaTimer">4.Brahma (300KT)</p>
+      <p id="dratusTimer">4.Dratus (1500KT)</p>
+      <p id="zehirliBalcikTimer">4.Zehirli Balçık (5000KT)</p>
+
+      <p id="tasGolemTimer">5.Taş Golem (500 S)</p>
+      <p id="mistikGardiyanTimer">5.Mistik Gardiyan (1 Q)</p>
+      <p id="altinAnubisTimer">5.Altın Anubis (2 Q)</p>
+      <p id="medusaTimer">5.Medusa (10 Q)</p>
+      <p id="kurabiyeCanavariTimer">5.Kurabiye Canavarı (20 Q)</p>
+    </div>
+    <div id="metinInfo">
+      <div class="cadilarHaritasi">
+        <div><b>Cadilar Haritası</b></div>
+        <div>Cadılar Metini(x5) - 100 K</div>
+        <div>Cadılar Metini(x25) - 100 K</div>
+        <div>Cadılar Metini(x50) - 100 K</div>
+        <div>Cadılar Metini(x100) - 100 K</div>
+      </div>
+      <div class="uzayHaritasi">
+        <div><b>Uzay Yolu Haritası</b></div>
+        <div>Galaksi Metini(x5) - 15 T</div>
+        <div>Galaksi Metini(x25) - 100 T</div>
+        <div>Galaksi Metini(x50) - 500 T</div>
+        <!--12m-->
+        <div>Galaksi Metini(x100) - 2 KT</div>
+      </div>
+      <div class="cehennemHaritasi">
+        <div><b>Cehennem Haritası (Rebirth:10)</b></div>
+        <div>Lav Metini(x5) - 5 KT</div>
+        <div>Lav Metini(x25) - 30 KT</div>
+        <div>Lav Metini(x50) - 100 KT</div>
+        <div>Lav Metini(x100) - 350 KT</div>
+      </div>
+      <div class="bedeviHaritasi">
+        <div><b>Bedevi Haritası (Rebirth:25)</b></div>
+        <div>Çöl Metini(x5) - 5 S</div>
+        <!--24m-->
+        <div>Çöl Metini(x25) - 30 S</div>
+        <div>Çöl Metini(x50) - 65 S</div>
+        <div>Çöl Metini(x100) - 150 S</div>
+      </div>
+      <div class="sevgililerHaritasi">
+        <div><b>Aşıklar Diyarı Haritası (Rebirth:50)</b></div>
+        <div>Aşıklar Metini(x5) - 200 S</div>
+        <div>Aşıklar Metini(x25) - 1 Q 500 S</div>
+        <div>Aşıklar Metini(x50) - 4 Q</div>
+        <div>Aşıklar Metini(x100) - AKTİF DEĞİL</div>
+      </div>
+
+      <div class="zamanHaritası">
+        <div><b>Zaman Haritası</b></div>
+        <div>Zaman metini - 10 KT</div>
+      </div>
+    </div>
+    <div id="otofarmInfo">
+      <form
+        style="margin-top: 20px"
+        id="farmForm"
+        onsubmit="event.preventDefault(); farmhesapla();"
+      >
+        <label><b>Kestiğin Metini Seç</b></label>
+        <select name="language" id="metinDegeri" required>
+          <option value="cadilar100">cadılar metini x100</option>
+          <option value="galaksi5">galaksi metini x5</option>
+          <option value="galaksi25">galaksi metini x25</option>
+          <option value="galaksi50">galaksi metini x50</option>
+          <option value="galaksi100">galaksi metini x100</option>
+
+          <option value="lav5">lav metini x5</option>
+          <option value="lav25">lav metini x25</option>
+          <option value="lav50">lav metini x50</option>
+          <option value="lav100">lav metini x100</option>
+
+          <option value="col5">çöl metini x5</option>
+          <option value="col25">çöl metini x25</option>
+          <option value="col50">çöl metini x50</option>
+          <option value="col100">çöl metini x100</option>
+
+          <option value="asiklar5">aşıklar metini x5</option>
+          <option value="asiklar25">aşıklar metini x25</option>
+          <option value="asiklar50">aşıklar metini x50</option>
+          <option value="asiklar100">aşıklar metini x100 (Aktif Değil)</option>
+
+          <option value="zaman1">zaman metini</option>
+        </select>
+        <label style="margin-left: 10px" for="quantity">Saati Seç</label>
+        <input
+          type="number"
+          id="farmSaat"
+          name="saat"
+          min="1"
+          max="24"
+          required
+        />
+        <button type="submit" onclick="farmhesapla()">HESAPLA</button>
+      </form>
+      <div id="farmCalculator">
+        <div style="margin-top: 10px; font-style: italic">
+          Metine tek vuruş attığı ve saniyede ortalama 2 metin kestiği şeklinde
+          hesaplanır.(x2 kalıcı metin event uygulanmıştır.)
+        </div>
+        <div style="margin-top: 20px" id="hesaplanmisDeger"></div>
+      </div>
+    </div>
+
+    <script>
+      function saatGonder() {
+        document.getElementById("bossTimer").style = "display : inline";
+        document.getElementById("metinInfo").style = "display : none";
+        document.getElementById("otofarmInfo").style = "display : none ";
+        var saatDegeri = document.getElementById("saat").value;
+        onBesDakikaliklar(saatDegeri);
+        otuzDakikaliklar(saatDegeri);
+        kirkBesDakikaliklar(saatDegeri);
+        birSaatlikler(saatDegeri);
+        birBucukSaatlikler(saatDegeri);
+        ikiSaatlikler(saatDegeri);
+        ikiBucukSaatlikler(saatDegeri);
+        ucSaatlikler(saatDegeri);
+        ucBucukSaatlikler(saatDegeri);
+        dortSaatlikler(saatDegeri);
+        function onBesDakikaliklar(saatDegeri) {
+          var [saat, dakika] = saatDegeri.split(":").map((e) => parseInt(e));
+          dakika -= 15;
+
+          if (dakika < 0) {
+            dakika += 60;
+            saat -= 1;
+          }
+
+          if (saat < 0) {
+            saat += 24;
+          }
+          var sonuc = ("0" + saat).slice(-2) + ":" + ("0" + dakika).slice(-2);
+          document.getElementById("luciferTimer").innerText =
+            "1. Lucifer    :  " + sonuc;
+          document.getElementById("orkReisiTimer").innerText =
+            "1. Ork Reisi    : " + sonuc;
+        }
+
+        function otuzDakikaliklar(saatDegeri) {
+          var [saat, dakika] = saatDegeri.split(":").map((e) => parseInt(e));
+          dakika -= 30;
+
+          if (dakika < 0) {
+            dakika += 60;
+            saat -= 1;
+          }
+
+          if (saat < 0) {
+            saat += 24;
+          }
+          var azrailSonuc =
+            ("0" + saat).slice(-2) + ":" + ("0" + dakika).slice(-2);
+          document.getElementById("azrailTimer").innerHTML =
+            "1. Azrail   <i>(25M) </i>    : " + azrailSonuc;
+          document.getElementById("orumcekTimer").innerHTML =
+            "1. Örümcek Barones   <i>(50M) </i>    : " + azrailSonuc;
+          document.getElementById("beranSetaouTimer").innerHTML =
+            "1. Beran Setaou   <i>(100M) </i>    : " + azrailSonuc;
+        }
+
+        function kirkBesDakikaliklar(saatDegeri) {
+          var [saat, dakika] = saatDegeri.split(":").map((e) => parseInt(e));
+          dakika -= 45;
+
+          if (dakika < 0) {
+            dakika += 60;
+            saat -= 1;
+          }
+
+          if (saat < 0) {
+            saat += 24;
+          }
+          var sonuc = ("0" + saat).slice(-2) + ":" + ("0" + dakika).slice(-2);
+          document.getElementById("razadorTimer").innerHTML =
+            "2. Razadör   <i>(500M) </i>   : " + sonuc;
+          document.getElementById("nemereTimer").innerHTML =
+            "2. Nemere   <i>(1T) </i>    : " + sonuc;
+        }
+
+        function birSaatlikler(saatDegeri) {
+          var [saat, dakika] = saatDegeri.split(":").map((e) => parseInt(e));
+          saat -= 1;
+
+          if (dakika < 0) {
+            dakika += 60;
+            saat -= 1;
+          }
+
+          if (saat < 0) {
+            saat += 24;
+          }
+          var sonuc = ("0" + saat).slice(-2) + ":" + ("0" + dakika).slice(-2);
+          document.getElementById("kristalEjderhaTimer").innerHTML =
+            "2. Kristal Ejderha   <i>(3T) </i>    : " + sonuc;
+          document.getElementById("seytaniKurtTimer").innerHTML =
+            "2. Şeytani Kurt   <i>(6T) </i>    : " + sonuc;
+        }
+
+        function birBucukSaatlikler(saatDegeri) {
+          var [saat, dakika] = saatDegeri.split(":").map((e) => parseInt(e));
+          saat -= 1;
+          dakika -= 30;
+
+          if (dakika < 0) {
+            dakika += 60;
+            saat -= 1;
+          }
+
+          if (saat < 0) {
+            saat += 24;
+          }
+          var sonuc = ("0" + saat).slice(-2) + ":" + ("0" + dakika).slice(-2);
+          document.getElementById("muhafizTimer").innerHTML =
+            "2. Muhafız   <i>(10T) </i>    : " + sonuc;
+        }
+
+        function ikiSaatlikler(saatDegeri) {
+          var [saat, dakika] = saatDegeri.split(":").map((e) => parseInt(e));
+          saat -= 2;
+
+          if (dakika < 0) {
+            dakika += 60;
+            saat -= 1;
+          }
+
+          if (saat < 0) {
+            saat += 24;
+          }
+          var sonuc = ("0" + saat).slice(-2) + ":" + ("0" + dakika).slice(-2);
+          document.getElementById("kutuphaneTimer").innerHTML =
+            "3. Kütüphane Canavarı   <i>(150T) </i>    : " + sonuc;
+          document.getElementById("kardanAdamTimer").innerHTML =
+            "3. Kardan Adam   <i>(500T) </i>    : " + sonuc;
+        }
+
+        function ikiBucukSaatlikler(saatDegeri) {
+          var [saat, dakika] = saatDegeri.split(":").map((e) => parseInt(e));
+          saat -= 2;
+          dakika -= 30;
+
+          if (dakika < 0) {
+            dakika += 60;
+            saat -= 1;
+          }
+
+          if (saat < 0) {
+            saat += 24;
+          }
+          var sonuc = ("0" + saat).slice(-2) + ":" + ("0" + dakika).slice(-2);
+          document.getElementById("jasonTimer").innerHTML =
+            "3. Korkunç Jason   <i>(2KT) </i>    : " + sonuc;
+          document.getElementById("olumTanricasiTimer").innerHTML =
+            "3. Ölüm Tanrıçası   <i>(5KT) </i>    : " + sonuc;
+        }
+
+        function ucSaatlikler(saatDegeri) {
+          var [saat, dakika] = saatDegeri.split(":").map((e) => parseInt(e));
+          saat -= 3;
+
+          if (dakika < 0) {
+            dakika += 60;
+            saat -= 1;
+          }
+
+          if (saat < 0) {
+            saat += 24;
+          }
+          var sonuc = ("0" + saat).slice(-2) + ":" + ("0" + dakika).slice(-2);
+          document.getElementById("yesilVadiKoruyucusuTimer").innerHTML =
+            "3. Yeşil Vadi Koruyucusu   <i>(15KT) </i>    : " + sonuc;
+        }
+
+        function ucBucukSaatlikler(saatDegeri) {
+          var [saat, dakika] = saatDegeri.split(":").map((e) => parseInt(e));
+          saat -= 3;
+          dakika -= 30;
+
+          if (dakika < 0) {
+            dakika += 60;
+            saat -= 1;
+          }
+
+          if (saat < 0) {
+            saat += 24;
+          }
+          var sonuc = ("0" + saat).slice(-2) + ":" + ("0" + dakika).slice(-2);
+          document.getElementById("mamutTimer").innerHTML =
+            "4. Mamut   <i>(100KT) </i>    : " + sonuc;
+          var sonuc = ("0" + saat).slice(-2) + ":" + ("0" + dakika).slice(-2);
+          document.getElementById("larvaTimer").innerHTML =
+            "4. Larva   <i>(150KT) </i>    : " + sonuc;
+        }
+
+        function dortSaatlikler(saatDegeri) {
+          var [saat, dakika] = saatDegeri.split(":").map((e) => parseInt(e));
+          saat -= 4;
+
+          if (dakika < 0) {
+            dakika += 60;
+            saat -= 1;
+          }
+
+          if (saat < 0) {
+            saat += 24;
+          }
+          var sonuc = ("0" + saat).slice(-2) + ":" + ("0" + dakika).slice(-2);
+          document.getElementById("brahmaTimer").innerHTML =
+            "4. Brahma   <i>(300KT) </i>    : " + sonuc;
+          document.getElementById("dratusTimer").innerHTML =
+            "4. Dratus   <i>(1500KT) </i>    : " + sonuc;
+          document.getElementById("zehirliBalcikTimer").innerHTML =
+            "4. Zehirli Balçık   <i>(5000KT) </i>    : " + sonuc;
+
+          document.getElementById("tasGolemTimer").innerHTML =
+            "5. Taş Golem   <i>(500 S) </i>    : " + sonuc;
+          document.getElementById("mistikGardiyanTimer").innerHTML =
+            "5. Mistik Gardiyan   <i>(1 Q) </i>    : " + sonuc;
+          document.getElementById("altinAnubisTimer").innerHTML =
+            "5. Altın Anubis   <i>(2 Q) </i>    : " + sonuc;
+          document.getElementById("medusaTimer").innerHTML =
+            "5. Medusa    <i>(10 Q) </i>    : " + sonuc;
+          document.getElementById("kurabiyeCanavariTimer").innerHTML =
+            "5. Kurabiye Canavarı   <i>(20 Q) </i>    : " + sonuc;
+        }
+      }
+
+      function metinleriGonder() {
+        document.getElementById("bossTimer").style = "display : none ";
+        document.getElementById("otofarmInfo").style = "display : none ";
+        document.getElementById("metinInfo").style =
+          "display : grid ;grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(6, 1fr);grid-column-gap: 0px;grid-row-gap: 0px;";
+      }
+
+      function otoFarmHesapla() {
+        document.getElementById("bossTimer").style = "display : none";
+        document.getElementById("metinInfo").style = "display : none";
+        document.getElementById("otofarmInfo").style = "display : inline ";
+      }
+      function farmhesapla() {
+        var metinDegeri = document.getElementById("metinDegeri").value;
+        var saatDegeri = document.getElementById("farmSaat").value;
+        var paraDegeri = 0;
+        var farmCalculate = 0;
+        if (metinDegeri == "cadilar100") {
+          paraDegeri = 5 * 2;
+        } else if (metinDegeri == "galaksi5") {
+          paraDegeri = 4 * 2;
+        } else if (metinDegeri == "galaksi25") {
+          paraDegeri = 8 * 2;
+        } else if (metinDegeri == "galaksi50") {
+          paraDegeri = 12 * 2;
+        } else if (metinDegeri == "galaksi100") {
+          paraDegeri = 16 * 2;
+        } else if (metinDegeri == "galaksi25") {
+          paraDegeri = 8 * 2;
+        } else if (metinDegeri == "lav5") {
+          paraDegeri = 12 * 2;
+        } else if (metinDegeri == "lav25") {
+          paraDegeri = 20 * 2;
+        } else if (metinDegeri == "lav50") {
+          paraDegeri = 28 * 2;
+        } else if (metinDegeri == "lav100") {
+          paraDegeri = 36 * 2;
+        } else if (metinDegeri == "col5") {
+          paraDegeri = 24 * 2;
+        } else if (metinDegeri == "col25") {
+          paraDegeri = 36 * 2;
+        } else if (metinDegeri == "col50") {
+          paraDegeri = 54 * 2;
+        } else if (metinDegeri == "col100") {
+          paraDegeri = 72 * 2;
+        } else if (metinDegeri == "asiklar5") {
+          paraDegeri = 48 * 2;
+        } else if (metinDegeri == "asiklar25") {
+          paraDegeri = 72 * 2;
+        } else if (metinDegeri == "asiklar50") {
+          paraDegeri = 96 * 2;
+        } else if (metinDegeri == "asiklar100") {
+          paraDegeri = 0;
+        } else if (metinDegeri == "zaman1") {
+          paraDegeri = 20 * 2;
+        }
+
+        farmCalculate = paraDegeri * (saatDegeri * 3600) * 2;
+        document.getElementById("farmCalculator").style = "display: block";
+        document.getElementById("hesaplanmisDeger").innerText =
+          `Toplam Hesaplanan Yang :` + farmCalculate / 1000 + "T";
+      }
+    </script>
+  </body>
+</html>
+
+<!--
+  lav5
+  cadılar metini x100 - 5m
+  galaksi metini x5 - 4m
+  galaksi metini x25 - 8m
+  galaksi metini x50 - 12m
+  galaksi metini x100 - 16m
+
+  lav metini x5 -  12m
+  lav metini x25 - 20m
+  lav metini x50 - 28m
+  lav metini x100 - 36m
+
+  çöl metini x5 - 24m
+  çöl metini x25 - 36m
+  çöl metini x50 - 54m
+  çöl metini x100 - 72m
+
+  aşıklar metini x5 - 48m  -S 200
+  aşıklar metini x25 - 72m -Q 1.5 
+  aşıklar metini x50 - 96m -Q 4 
+  aşıklar metini x100 - -aktif değil
+
+  zaman metni - 20m
+
+  <input type="time" id="saat" name="saat" />
+-->
